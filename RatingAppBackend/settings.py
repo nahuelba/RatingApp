@@ -25,7 +25,7 @@ SECRET_KEY = 't+dmvrl=4cd*)w_(6v$y*()n0l#4joms(3iz3#ldd2jbb=_vnf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ratingappbackend.herokuapp.com']
 
 
 # Application definition
