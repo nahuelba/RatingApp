@@ -1,0 +1,56 @@
+<div class="container">
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Album Column -->
+  <ng-container matColumnDef="album">
+    <th mat-header-cell *matHeaderCellDef> Album </th>
+    <td mat-cell *matCellDef="let element"> {{element.album}} </td>
+  </ng-container>
+
+  <!-- stars Column -->
+  <ng-container matColumnDef="stars">
+    <th mat-header-cell *matHeaderCellDef> Rating Average </th>
+    <td mat-cell *matCellDef="let element">
+      
+      <!-- {{ element.rating / element.updates_number}} -->
+     
+      <div class="stars">
+       
+        <ngx-star-rating 
+          matTooltip="Number of ratings : {{element.updates_number}}" 
+          matTooltipPosition="right"
+          matTooltipClass="tooltip"
+          [(ngModel)]="element.rating / element.updates_number" 
+          [id]="element.id" 
+          [disabled]="true"
+        >
+      </ngx-star-rating >
+      </div>  
+    
+    
+    
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+</table>
+
+</div>

@@ -1,0 +1,44 @@
+<!-- Side-bar -->
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Bill Evans Rating App</span>
+  
+  </mat-toolbar>
+  
+  
+  <mat-drawer-container class="full" autosize>
+    <mat-drawer class="width" #drawer mode="side">
+      <button 
+        class="button" 
+        mat-button
+        routerLink=""
+        [routerLinkActiveOptions]="{exact:true}"
+        routerLinkActive="active"
+      >
+        Home
+      </button>
+      <button 
+        class="button" 
+        mat-button
+        routerLink="ratings"
+        routerLinkActive="active"
+      >
+      Rating
+      </button>
+    </mat-drawer>  
+    <mat-drawer-content>
+      
+        <!-- Content -->
+        <router-outlet>
+        </router-outlet>
+        <!-- end Content -->
+        
+    </mat-drawer-content>
+   
+  </mat-drawer-container>
+
+<!-- end Sidebar -->
+  
+  
