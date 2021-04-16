@@ -1,1 +1,0 @@
-web: gunicorn RatingAppBackend.wsgi --log-file -
